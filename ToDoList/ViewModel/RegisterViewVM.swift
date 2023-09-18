@@ -8,12 +8,23 @@
 import Foundation
 import FirebaseAuth
 import FirebaseFirestore
-class RegisterViewVM : ObservableObject {
-    @Published var name = ""
-    @Published var email = ""
-    @Published var password = ""
-    @Published var error = ""
-    init(){}
+
+class RegisterViewVM: ObservableObject {
+    @Published var name: String
+    @Published var email: String
+    @Published var password: String
+    @Published var error: String
+   
+    init(name: String, email: String, password: String, error: String) {
+        self.name = name
+        self.email = email
+        self.password = password
+        self.error = error
+    }
+    convenience init(){
+        self.init(name: "", email: "", password: "", error: "")
+    }
+   
     func register(){
         guard validate() else {
             return
@@ -25,7 +36,7 @@ class RegisterViewVM : ObservableObject {
             self?.insertUserRecord(id: userId)
         }
     }
-    private func insertUserRecord(id:String) {
+    private func insertUserRecord(id: String) {
         let newUser = User(id: id,
                            name: name,
                            email: email,

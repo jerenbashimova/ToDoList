@@ -7,6 +7,7 @@
 
 import SwiftUI
 import FirebaseCore
+
 @main
 struct ToDoListApp: App {
     init(){

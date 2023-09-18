@@ -8,11 +8,19 @@
 import Foundation
 import FirebaseAuth
 import FirebaseFirestore
-class NewItemViewVM:ObservableObject {
-    @Published var title = ""
+
+class NewItemViewVM: ObservableObject {
+    @Published var title: String
     @Published var dueDate = Date()
-    @Published var showAlert = false
-    init(){}
+    @Published var showAlert: Bool
+    init(title: String, dueDate: Date, showAlert: Bool) {
+        self.title = title
+        self.dueDate = dueDate
+        self.showAlert = showAlert
+    }
+    convenience init(){
+        self.init(title: "", dueDate: Date(), showAlert: false)
+    }
     func save(){
         guard canSave else{
             return

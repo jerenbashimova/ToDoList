@@ -9,7 +9,7 @@ import SwiftUI
 
 struct NewItemView: View {
     @StateObject var viewModel = NewItemViewVM()
-    @Binding var newItemPresented : Bool
+    @Binding var newItemPresented: Bool
     var body: some View {
         VStack {
             Text("New Item")

@@ -8,9 +8,10 @@
 import Foundation
 import FirebaseAuth
 import FirebaseFirestore
-class ProfileViewVM:ObservableObject {
-    init(){}
-    @Published var user:User? = nil
+
+class ProfileViewVM: ObservableObject {
+    @Published var user: User? = nil
+    
     func fetchUser() {
         guard let userId = Auth.auth().currentUser?.uid else {
             return

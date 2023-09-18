@@ -7,13 +7,19 @@
 
 import Foundation
 import FirebaseFirestore
+
 class ToDoListViewVM:ObservableObject {
-    @Published var showingNewItemView = false
+    @Published var showingNewItemView: Bool
     private let userId: String
-    init(userId:String) {
+    init(showingNewItemView: Bool,userId:String) {
+        self.showingNewItemView = showingNewItemView
         self.userId = userId
     }
-    func delete (id:String) {
+    convenience init(userId:String){
+        self.init(showingNewItemView: false, userId: userId)
+    }
+    
+    func delete (id: String) {
         let db = Firestore.firestore()
         db.collection("users")
             .document(userId)

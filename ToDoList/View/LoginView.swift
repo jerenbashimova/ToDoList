@@ -34,7 +34,7 @@ struct LoginView_Previews: PreviewProvider {
     }
 }
 
-struct FormView:View{
+struct FormView: View{
     @StateObject var viewModel = LoginViewVM()
     var body: some View {
         Form {
